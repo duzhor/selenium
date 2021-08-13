@@ -1,6 +1,7 @@
 name: docker push images
 
 on:
+  push:
   workflow_dispatch:
   repository_dispatch:
     types: build_docker_image
@@ -29,7 +30,7 @@ jobs:
           file: ./Dockerfile
           tags: chiupam/selenium:latest
 
-      - name: Delete Workflow Runs # 删除执行日志
+      - name: Delete Workflow Runs
         uses: Mattraks/delete-workflow-runs@main
         with:
           token: ${{ github.token }}
