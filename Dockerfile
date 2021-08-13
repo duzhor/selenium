@@ -14,9 +14,7 @@ yum -y install crontabs && \
 cd /root  && \
 yum -y localinstall google-chrome.rpm && \
 chmod +x chromedriver && \
-mkdir /root/python && \
-cd /root/python && \
-wget https://raw.githubusercontent.com/chiupam/selenium/master/example.py
+mkdir /root/python
 
 WORKDIR /root/python
 
