@@ -23,11 +23,11 @@ selenium/                 # selenium 仓库
   `-- .github               # github 目录
     `-- workflows             # 工作流目录
         `-- main.yml            # 工作流文件
-  |-- chromedriver          # chromedriver 驱动
   |-- Dockerfile            # Dockerfile 镜像部署文件
+  |-- README.md             # 仓库说明
+  |-- chromedriver          # chromedriver 驱动
   |-- example.py            # 示例脚本
-  |-- google-chrome.rpm     # chrome 浏览器安装包
-  `-- README.md             # 仓库说明
+  `-- google-chrome.rpm     # chrome 浏览器安装包
 ```
 # 目录树
 ```text
