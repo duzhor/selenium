@@ -5,7 +5,7 @@
 </h1>
 
 # 简介
-使用 centos8 为基础镜像制作的自定义镜像，内置 python 3.6.8、pip3、selenium、requsets、chrome、chromedriver 及 crontabs 服务，方便调试使用 python3 + selenium + chrome + chromedriver 的脚本。
+使用 centos8 为基础镜像制作的自定义镜像，内置 python 3.6.8、pip3、selenium、requests、chrome、chromedriver 及 crontabs 服务，方便调试使用 python3 + selenium + chrome + chromedriver 的脚本。
 # README目录
 - [简介](#简介)
 - [README目录](#README目录)
