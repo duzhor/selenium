@@ -1,6 +1,6 @@
 FROM centos
 
-COPY google-chrome.rpm chromedriver /root/
+COPY ./centos/google-chrome.rpm ./centos/chromedriver /root/
 
 RUN yum -y update && \
 yum -y groupinstall development  && \

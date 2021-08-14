@@ -1,0 +1,30 @@
+FROM alpine:latest
+
+USER root
+
+VOLUME [ "/data" ]
+
+ENV TIME_ZONE Asia/Shanghai
+
+RUN apk add --no-cache -U tzdata \
+    && ln -sf /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \
+    && echo "${TIME_ZONE}" > /etc/timezone \
+    && apk add --update --upgrade \
+    && apk add --no-cache python3 \
+    && apk add --no-cache python3-dev \
+    && apk add --no-cache chromium \
+    && apk add --no-cache chromium-chromedriver \
+    && apk add --no-cache git \
+    && python3 -m ensurepip \
+    && rm -r /usr/lib/python*/ensurepip \
+    && pip3 install --default-timeout=100 --no-cache-dir --upgrade pip \
+    && pip3 install --default-timeout=100 --no-cache-dir --upgrade setuptools \
+    && pip3 install --default-timeout=100 --no-cache-dir --upgrade selenium \
+    && if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi \
+    && if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi \
+    && rm -rf /var/cache/apk/* \
+    && rm -rf ~/.cache/pip
+
+WORKDIR /data
+
+CMD [ "/bin/sh" ]
