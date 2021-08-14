@@ -20,6 +20,7 @@ RUN apk add --no-cache -U tzdata \
     && pip3 install --default-timeout=100 --no-cache-dir --upgrade pip \
     && pip3 install --default-timeout=100 --no-cache-dir --upgrade setuptools \
     && pip3 install --default-timeout=100 --no-cache-dir --upgrade selenium \
+    && pip3 install --default-timeout=100 --no-cache-dir --upgrade requests \
     && if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi \
     && if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi \
     && rm -rf /var/cache/apk/* \
