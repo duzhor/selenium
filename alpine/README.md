@@ -8,7 +8,7 @@
 # 新建容器
 ```shell
 docker run -dit \
-  -v $PWD/data:/data \
+  -v $PWD:/data \
   --name selenium \
   --restart always \
   chiupam/selenium:alpine
@@ -25,6 +25,13 @@ python example.py
 ## pip
 ```shell
 pip freeze
+```
+## crontab
+```shell
+crontab -l # 列出定时任务
+crontab -e # 修改定时任务
+crontab -r # 清空定时任务
+crontab <file path> # 把文件内容写入crontab定时任务蹱
 ```
 # 默认路径
 ## chrome
