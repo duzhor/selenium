@@ -6,7 +6,7 @@ WORKDIR /data
 
 VOLUME [ "/data" ]
 
-ADD ./centos/* /root/
+ADD google-chrome.rpm chromedriver /root/
 
 RUN yum -y update \
 && yum -y groupinstall development \
@@ -16,8 +16,6 @@ RUN yum -y update \
 && pip3 install requests \
 && yum -y install crontabs \
 && yum -y localinstall /root/google-chrome.rpm \
-&& chmod +x /root/chromedriver \
-&& mv /root/example.py /data/ \
-&& mv /root/crontab.sh /data/
+&& chmod +x /root/chromedriver
 
 CMD ["/bin/bash"]
