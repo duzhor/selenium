@@ -2,13 +2,13 @@
 使用 centos8 为基础镜像制作的自定义镜像，内置 python 3.6.8、pip3、selenium、requests、chrome、chromedriver 及 crontabs 服务，方便调试使用 python3 + selenium + chrome + chromedriver 的脚本。
 # 目录树
 ```text
-/demo/
+/data/
   `-- example.py
 ```
 # 新建容器
 ```shell
 docker run -dit \
-  -v $PWD/demo:/demo \
+  -v $PWD/data:/data \
   --name selenium \
   --restart always \
   chiupam/selenium:latest

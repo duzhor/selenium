@@ -1,4 +1,8 @@
-FROM centos
+FROM centos:latest
+
+USER root
+
+VOLUME [ "/data" ]
 
 COPY ./centos/google-chrome.rpm ./centos/chromedriver /root/
 
@@ -10,9 +14,8 @@ pip3 install selenium && \
 pip3 install requests && \
 yum -y install crontabs && \
 yum -y localinstall /root/google-chrome.rpm && \
-chmod +x /root/chromedriver && \
-mkdir /demo
+chmod +x /root/chromedriver
 
-WORKDIR /demo
+WORKDIR /data
 
 CMD ["/bin/bash"]
