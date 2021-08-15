@@ -14,7 +14,7 @@ RUN apk add --no-cache -U tzdata \
 && apk add --no-cache python3-dev \
 && apk add --no-cache chromium \
 && apk add --no-cache chromium-chromedriver \
-&& apk add --update-cache wqy-zenhei \
+&& apk add wqy-zenhei --update-cache --repository http://nl.alpinelinux.org/alpine/edge/testing --allow-untrusted \
 && apk add --no-cache git \
 && python3 -m ensurepip \
 && rm -r /usr/lib/python*/ensurepip \
