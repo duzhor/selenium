@@ -26,6 +26,11 @@ python3 example.py
 ```shell
 pip3 freeze
 ```
+# 默认路径
+## chrome
+`未知`
+## chromedriver
+`/root/chromedriver`
 # 示例脚本
 ```python
 # coding=utf-8
@@ -44,7 +49,7 @@ if __name__ == "__main__":
     main()
 
 ```
-# 定时示例
+# 示例定时
 ```shell
 # 每天12点自动执行一次/data/example.py脚本
 0 0 * * * cd /data && python3 example.py >>/data/example.log 2>&1 &

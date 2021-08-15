@@ -1,8 +1,11 @@
 FROM alpine:latest
 
+MAINTAINER chiupam
+
 USER root
 
-VOLUME [ "/data" ]
+# RUN echo http://mirrors.aliyun.com/alpine/v3.10/main/ > /etc/apk/repositories \
+# && echo http://mirrors.aliyun.com/alpine/v3.10/community/ >> /etc/apk/repositories
 
 RUN apk add --no-cache -U tzdata \
 && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
@@ -26,4 +29,4 @@ RUN apk add --no-cache -U tzdata \
 
 WORKDIR /data
 
-CMD ["/bin/sh"]
+ENTRYPOINT crond && /bin/sh

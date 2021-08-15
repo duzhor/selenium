@@ -1,10 +1,8 @@
 FROM centos:latest
 
+MAINTAINER chiupam
+
 USER root
-
-WORKDIR /data
-
-VOLUME [ "/data" ]
 
 ADD google-chrome.rpm chromedriver /root/
 
@@ -18,4 +16,6 @@ RUN yum -y update \
 && yum -y localinstall /root/google-chrome.rpm \
 && chmod +x /root/chromedriver
 
-CMD ["/bin/bash"]
+WORKDIR /data
+
+ENTRYPOINT crond && /bin/bash

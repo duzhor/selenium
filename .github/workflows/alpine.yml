@@ -1,4 +1,4 @@
-name: docker push images (alpine)
+name: docker push (alpine)
 
 on:
   push:
