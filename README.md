@@ -14,9 +14,11 @@
 - [x] selenium
 - [x] requests
 # 镜像分类
-|基础镜像|镜像容量|标签|驱动路径|使用说明|
-|:---|:---|:---|:---|:---|
-|CentOS 8|1.73G|latest|`/root/chromedriver`|[使用说明](https://github.com/chiupam/selenium/tree/master/centos/README.md)|
-|Alpine Linux|441MB|alpine|`/usr/lib/chromium/chromedriver`|[使用说明](https://github.com/chiupam/selenium/tree/master/alpine/README.md)|
+|基础镜像|CentOS 8|Alpine Linux|
+|:---:|:---:|:---:|
+|标签|latest|alpine|
+|拉取指令|`docker pull chiupam/selnm:latest`|`docker pull chiupam/selnm:alpine`|
+|驱动路径|`/root/chromedriver`|`/usr/lib/chromium/chromedriver`|
+|使用说明|[latest镜像使用说明](https://github.com/chiupam/selenium/tree/master/centos/README.md)|[alpine镜像使用说明alpine](https://github.com/chiupam/selenium/tree/master/alpine/README.md)|
 # 我的主页
 [chiupam/selenium](https://hub.docker.com/r/chiupam/selenium)
