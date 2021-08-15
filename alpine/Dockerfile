@@ -31,4 +31,4 @@ RUN apk add --no-cache -U tzdata \
 && rm -rf /var/cache/apk/* \
 && rm -rf ~/.cache/pip
 
-CMD [ "/bin/sh" ]
+CMD ["crond"]
