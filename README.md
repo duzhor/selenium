@@ -19,6 +19,6 @@
 |标签|latest|alpine|
 |拉取指令|`docker pull chiupam/selnm:latest`|`docker pull chiupam/selnm:alpine`|
 |驱动路径|`/root/chromedriver`|`/usr/lib/chromium/chromedriver`|
-|使用说明|[latest镜像使用说明](https://github.com/chiupam/selenium/tree/master/centos/README.md)|[alpine镜像使用说明alpine](https://github.com/chiupam/selenium/tree/master/alpine/README.md)|
+|使用说明|[latest镜像使用说明](https://github.com/chiupam/selenium/tree/master/centos/README.md)|[alpine镜像使用说明](https://github.com/chiupam/selenium/tree/master/alpine/README.md)|
 # 我的主页
 [chiupam/selenium](https://hub.docker.com/r/chiupam/selenium)
