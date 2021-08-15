@@ -14,7 +14,7 @@
 - [x] selenium
 - [x] requests
 # 镜像分类
-|版本|镜像容量|标签|驱动路径|使用帮助|
+|基础镜像|镜像容量|标签|驱动路径|使用说明|
 |:---|:---|:---|:---|:---|
 |CentOS 8|1.73G|latest|`/root/chromedriver`|[使用说明](https://github.com/chiupam/selenium/tree/master/centos/README.md)|
 |Alpine Linux|441MB|alpine|`/usr/lib/chromium/chromedriver`|[使用说明](https://github.com/chiupam/selenium/tree/master/alpine/README.md)|
