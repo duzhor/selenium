@@ -4,7 +4,7 @@ USER root
 
 VOLUME [ "/data" ]
 
-ENV TIME_ZONE Asia/Shanghai
+ENV TIME_ZONE=Asia/Shanghai
 
 RUN apk add --no-cache -U tzdata \
     && ln -sf /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \
@@ -14,6 +14,7 @@ RUN apk add --no-cache -U tzdata \
     && apk add --no-cache python3-dev \
     && apk add --no-cache chromium \
     && apk add --no-cache chromium-chromedriver \
+    && apk add wqy-zenhei --update-cache --repository http://nl.alpinelinux.org/alpine/edge/testing --allow-untrusted \
     && apk add --no-cache git \
     && python3 -m ensurepip \
     && rm -r /usr/lib/python*/ensurepip \
