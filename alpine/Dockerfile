@@ -2,11 +2,7 @@ FROM alpine:latest
 
 USER root
 
-WORKDIR /data
-
 VOLUME [ "/data" ]
-
-ADD ./alpine/* /data/
 
 ENV TIME_ZONE=Asia/Shanghai
 
@@ -30,5 +26,7 @@ RUN apk add --no-cache -U tzdata \
 && if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi \
 && rm -rf /var/cache/apk/* \
 && rm -rf ~/.cache/pip
+
+WORKDIR /data
 
 CMD ["/bin/sh"]
