@@ -4,13 +4,13 @@ MAINTAINER chiupam
 
 USER root
 
-# RUN echo http://mirrors.aliyun.com/alpine/v3.10/main/ > /etc/apk/repositories \
-# && echo http://mirrors.aliyun.com/alpine/v3.10/community/ >> /etc/apk/repositories
-
-RUN apk add --no-cache -U tzdata \
+RUN echo http://mirrors.aliyun.com/alpine/v3.10/main/ > /etc/apk/repositories \
+&& echo http://mirrors.aliyun.com/alpine/v3.10/community/ >> /etc/apk/repositories \
+&& apk add --no-cache -U tzdata \
 && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-&& echo "Asia/Shanghai" > /etc/timezone \
-&& apk add --update --upgrade \
+&& echo "Asia/Shanghai" > /etc/timezone
+
+RUN apk add --update --upgrade \
 && apk add --no-cache python3 \
 && apk add --no-cache python3-dev \
 && apk add --no-cache chromium \
