@@ -6,7 +6,9 @@ USER root
 
 ADD ./centos/google-chrome.rpm ./centos/chromedriver /root/
 
-RUN yum -y update \
+RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+&& echo 'Asia/Shanghai' >/etc/timezone \
+&& yum -y update \
 && yum -y groupinstall development \
 && yum -y install epel-release \
 && yum -y install python36 \

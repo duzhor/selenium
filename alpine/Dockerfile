@@ -34,3 +34,4 @@ RUN apk add --update --upgrade \
 WORKDIR /data
 
 ENTRYPOINT crond && /bin/sh
+
