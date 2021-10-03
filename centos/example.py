@@ -12,5 +12,5 @@ if __name__ == "__main__":
     chrome_options = webdriver.ChromeOptions()  # 必须
     chrome_options.add_argument('--headless')  # 必须
     chrome_options.add_argument('--no-sandbox')  # 必须
-    driver = webdriver.Chrome(executable_path='/root/chromedriver', options=chrome_options)  # 必须
+    driver = webdriver.Chrome(options=chrome_options)  # 必须
     main()

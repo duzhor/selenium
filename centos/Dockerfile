@@ -18,7 +18,8 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi \
 && yum -y install crontabs \
 && yum -y localinstall /root/google-chrome.rpm \
-&& chmod +x /root/chromedriver
+&& mv /root/chromedriver /usr/bin \
+&& chmod +x /usr/bin/chromedriver
 
 WORKDIR /data
 
