@@ -18,13 +18,13 @@ docker run -dit \
 docker exec -it selenium bash
 ```
 # 容器内命令
-## python3
+## python
 ```shell
-python3 example.py
+python example.py
 ```
-## pip3
+## pip
 ```shell
-pip3 freeze
+pip freeze
 ```
 ## crontab
 ```shell
@@ -33,11 +33,6 @@ crontab -e # 修改定时任务
 crontab -r # 清空定时任务
 crontab <file path> # 把文件内容写入crontab定时任务蹱
 ```
-# 默认路径
-## chrome
-`未知`
-## chromedriver
-`/root/chromedriver`
 # 示例脚本
 ```python
 # coding=utf-8
@@ -52,7 +47,7 @@ if __name__ == "__main__":
     chrome_options = webdriver.ChromeOptions()  # 必须
     chrome_options.add_argument('--headless')  # 必须
     chrome_options.add_argument('--no-sandbox')  # 必须
-    driver = webdriver.Chrome(executable_path='/root/chromedriver', options=chrome_options)  # 必须
+    driver = webdriver.Chrome(options=chrome_options)  # 必须
     main()
 
 ```
