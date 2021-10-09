@@ -1,4 +1,4 @@
-name: docker push (centos)
+name: docker push (centos-arm64)
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
         with:
           push: true
           file: ./centos/Dockerfile
-          tags: chiupam/selenium:latest
+          tags: chiupam/selenium:latest-arm64
           platforms: linux/arm64
 
       - name: Delete Workflow Runs

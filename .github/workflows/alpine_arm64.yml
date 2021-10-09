@@ -1,4 +1,4 @@
-name: docker push (alpine)
+name: docker push (alpine-arm64)
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
         with:
           push: true
           file: ./alpine/Dockerfile
-          tags: chiupam/selenium:alpine
+          tags: chiupam/selenium:alpine-arm64
           platforms: linux/arm64
 
       - name: Delete Workflow Runs
