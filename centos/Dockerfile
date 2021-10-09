@@ -19,7 +19,10 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && yum -y install crontabs \
 && yum -y localinstall /root/google-chrome.rpm \
 && mv /root/chromedriver /usr/bin \
-&& chmod +x /usr/bin/chromedriver
+&& chmod +x /usr/bin/chromedriver \
+&& mkdir data \
+&& echo "* * * * * crontab /data/cron.sh" > /data/cron.sh \
+&& crontab /data/cron.sh
 
 WORKDIR /data
 

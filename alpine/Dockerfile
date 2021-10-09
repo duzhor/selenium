@@ -12,9 +12,8 @@ USER root
 
 RUN apk add --no-cache -U tzdata \
 && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-&& echo "Asia/Shanghai" > /etc/timezone
-
-RUN apk add --update --upgrade \
+&& echo "Asia/Shanghai" > /etc/timezone \
+&& apk add --update --upgrade \
 && apk add --no-cache python3 \
 && apk add --no-cache python3-dev \
 && apk add --no-cache chromium \
@@ -30,9 +29,13 @@ RUN apk add --update --upgrade \
 && if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi \
 && rm -rf /var/cache/apk/* \
 && rm -rf ~/.cache/pip \
-&& mv /usr/lib/chromium/chromedriver /usr/bin
+&& mv /usr/lib/chromium/chromedriver /usr/bin \
+&& mkdir data \
+&& cd data \
+&& touch cron.sh \
+&& echo "* * * * * crontab /data/cron.sh" > cron.sh \
+&& crontab cron.sh
 
 WORKDIR /data
 
 ENTRYPOINT crond && /bin/sh
-
