@@ -29,7 +29,7 @@ jobs:
           push: true
           file: ./alpine/Dockerfile
           tags: chiupam/selenium:alpine
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          platforms: linux/amd64
 
       - name: Delete Workflow Runs
         uses: Mattraks/delete-workflow-runs@main
