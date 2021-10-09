@@ -31,11 +31,11 @@ RUN apk add --no-cache -U tzdata \
 && rm -rf ~/.cache/pip \
 && mv /usr/lib/chromium/chromedriver /usr/bin \
 && mkdir data \
-&& cd data \
-&& touch cron.sh \
-&& echo "* * * * * crontab /data/cron.sh" > cron.sh \
-&& crontab cron.sh
+&& echo "* * * * * crontab /data/cron.sh" > /data/cron.sh \
+&& crontab /data/cron.sh
 
 WORKDIR /data
 
 ENTRYPOINT crond && /bin/sh
+
+CMD /bin/sh
