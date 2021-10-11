@@ -17,15 +17,17 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && if [[ ! -e /usr/bin/pip ]]; then ln -s pip3 /usr/bin/pip ; fi \
 && if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi \
 && yum -y install crontabs \
-&& yum -y localinstall /root/google-chrome.rpm \
-&& mv /root/chromedriver /usr/bin \
+&& mkdir repo \
+&& cd repo \
+&& git clone https://github.com/chiupam/selenium.git . \
+&& cp /repo/chromedriver /usr/bin \
+&& cp /repo/centos/docker_entrypoint.sh /usr/local/bin \
 && chmod +x /usr/bin/chromedriver \
-&& mkdir data \
-&& echo "* * * * * crontab /data/cron.sh" > /data/cron.sh \
-&& crontab /data/cron.sh
+&& chmod +x /usr/local/bin/docker_entrypoint.sh \
+&& yum -y localinstall /repo/google-chrome.rpm
 
 WORKDIR /data
 
-ENTRYPOINT crond && /bin/bash
+ENTRYPOINT ["docker_entrypoint.sh"]
 
-CMD /bin/bash
+CMD [ "crond" ]
