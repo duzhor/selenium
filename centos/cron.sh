@@ -1,4 +1,4 @@
-# 每小时更新定时任务
-0 * * * * cd /data && crontab cron.sh
+# 每分钟更新定时任务
+* * * * * crontab /data/cron.sh
 # 自动删除3天前的log文件
-0 5 * * * cd /data && sh delete.sh >/dev/null 2>&1
+0 5 * * * sh /repo/delete.sh >/dev/null 2>&1 &

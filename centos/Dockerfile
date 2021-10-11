@@ -4,8 +4,6 @@ MAINTAINER chiupam
 
 USER root
 
-ADD ./centos/google-chrome.rpm ./centos/chromedriver /root/
-
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && echo 'Asia/Shanghai' >/etc/timezone \
 && yum -y update \
@@ -18,16 +16,16 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi \
 && yum -y install crontabs \
 && mkdir repo \
-&& cd repo \
-&& git clone https://github.com/chiupam/selenium.git . \
-&& cp /repo/chromedriver /usr/bin \
+&& git clone https://github.com/chiupam/selenium.git /repo \
+&& cp /repo/centos/chromedriver /usr/bin \
 && cp /repo/centos/docker_entrypoint.sh /usr/local/bin \
 && chmod +x /usr/bin/chromedriver \
 && chmod +x /usr/local/bin/docker_entrypoint.sh \
-&& yum -y localinstall /repo/google-chrome.rpm
+&& yum -y localinstall /repo/centos/google-chrome.rpm \
+&& crontab /repo/centos/cron.sh
 
 WORKDIR /data
 
-ENTRYPOINT ["docker_entrypoint.sh"]
+ENTRYPOINT crond && /bin/bash
 
-CMD [ "crond" ]
+CMD /bin/bash

@@ -30,9 +30,9 @@ RUN apk add --no-cache -U tzdata \
 && rm -rf /var/cache/apk/* \
 && rm -rf ~/.cache/pip \
 && mv /usr/lib/chromium/chromedriver /usr/bin \
-&& mkdir data \
-&& echo "* * * * * crontab /data/cron.sh" > /data/cron.sh \
-&& crontab /data/cron.sh
+&& mkdir repo \
+&& git clone https://github.com/chiupam/selenium.git /repo \
+&& crontab /repo/alpine/cron.sh
 
 WORKDIR /data
 
