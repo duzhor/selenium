@@ -32,7 +32,9 @@ RUN apk add --no-cache -U tzdata \
 && mv /usr/lib/chromium/chromedriver /usr/bin \
 && mkdir repo \
 && git clone https://github.com/chiupam/selenium.git /repo \
-&& crontab /repo/alpine/cron.sh
+&& rm -rf /repo/centos \
+&& mv -f /repo/alpine/* /repo \
+&& crontab /repo/cron.sh
 
 WORKDIR /data
 

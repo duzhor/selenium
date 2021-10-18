@@ -17,12 +17,12 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && yum -y install crontabs \
 && mkdir repo \
 && git clone https://github.com/chiupam/selenium.git /repo \
-&& cp /repo/centos/chromedriver /usr/bin \
-&& cp /repo/centos/docker_entrypoint.sh /usr/local/bin \
+&& rm -rf /repo/alpine \
+&& mv -f /repo/centos/* /repo \
+&& cp /repo/chromedriver /usr/bin \
 && chmod +x /usr/bin/chromedriver \
-&& chmod +x /usr/local/bin/docker_entrypoint.sh \
-&& yum -y localinstall /repo/centos/google-chrome.rpm \
-&& crontab /repo/centos/cron.sh
+&& yum -y localinstall /repo/google-chrome.rpm \
+&& crontab /repo/cron.sh
 
 WORKDIR /data
 

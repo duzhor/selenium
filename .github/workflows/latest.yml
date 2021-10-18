@@ -28,7 +28,7 @@ jobs:
         with:
           push: true
           file: ./centos/Dockerfile
-          tags: chiupam/selenium:centos
+          tags: chiupam/selenium:latest
           platforms: linux/amd64
 
       - name: Delete Workflow Runs
