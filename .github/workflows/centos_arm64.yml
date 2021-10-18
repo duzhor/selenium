@@ -1,4 +1,4 @@
-name: docker push (centos)
+name: docker push (centos-arm64)
 
 on:
 #  push:
