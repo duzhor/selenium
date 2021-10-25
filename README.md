@@ -13,6 +13,7 @@
 - [x] chromedriver
 - [x] selenium
 - [x] requests
+- [x] lxml
 # 镜像分类
 |基础镜像|Centos|Alpine|
 |:---:|:---:|:---:|
