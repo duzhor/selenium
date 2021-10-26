@@ -16,6 +16,7 @@ RUN apk add --no-cache -U tzdata \
 && apk add --update --upgrade \
 && apk add --no-cache python3 \
 && apk add --no-cache python3-dev \
+&& apk add py3-pip \
 && apk add --no-cache chromium \
 && apk add --no-cache chromium-chromedriver \
 && apk add wqy-zenhei --update-cache --repository http://nl.alpinelinux.org/alpine/edge/testing --allow-untrusted \
