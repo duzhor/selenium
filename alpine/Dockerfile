@@ -11,7 +11,7 @@ RUN set -x \
 && apk add --no-cache -U tzdata \
 && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && echo "Asia/Shanghai" > /etc/timezone \
-&& apk add --no-cache python3 python3-dev py3-pip chromium chromium-chromedriver py3-requests py3-requests py3-lxml py3-selenium\
+&& apk add --no-cache python3 python3-dev py3-pip chromium chromium-chromedriver py3-requests py3-requests py3-lxml py3-selenium git \
 && apk add wqy-zenhei --update-cache --repository http://nl.alpinelinux.org/alpine/edge/testing --allow-untrusted \
 && python3 -m ensurepip \
 && rm -r /usr/lib/python*/ensurepip \
