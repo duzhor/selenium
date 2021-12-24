@@ -11,4 +11,4 @@ while True:
     with open("/data/cron.sh", "r", encoding="utf-8") as f2:
         t2 = f2.read()
     if t1 != t2:
-        system("crontab /data/crontab.sh")
+        system("crontab /data/cron.sh")
