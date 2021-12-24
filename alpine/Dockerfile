@@ -21,7 +21,6 @@ RUN set -x \
 && rm -rf ~/.cache/pip \
 && mv /usr/lib/chromium/chromedriver /usr/bin \
 && mkdir repo \
-&& mkdir data \
 && git clone https://github.com/chiupam/selenium.git /repo \
 && rm -rf /repo/centos \
 && mv -f /repo/alpine/* /repo \

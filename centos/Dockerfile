@@ -9,13 +9,13 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && yum -y update \
 && yum -y groupinstall development \
 && yum -y install epel-release \
+&& yum -y install crontabs \
 && yum -y install python36 \
-&& pip3 install selenium \
-&& pip3 install requests \
-&& pip3 install lxml \
 && if [[ ! -e /usr/bin/pip ]]; then ln -s pip3 /usr/bin/pip ; fi \
 && if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi \
-&& yum -y install crontabs \
+&& pip install selenium \
+&& pip install requests \
+&& pip install lxml \
 && mkdir repo \
 && git clone https://github.com/chiupam/selenium.git /repo \
 && rm -rf /repo/alpine \
@@ -23,10 +23,10 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && cp /repo/chromedriver /usr/bin \
 && chmod +x /usr/bin/chromedriver \
 && yum -y localinstall /repo/google-chrome.rpm \
-&& crontab /repo/cron.sh
+&& crond
 
 WORKDIR /data
 
-ENTRYPOINT crond && /bin/bash
+ENTRYPOINT ["nohup", "python", "/repo/cron.py", "&"]
 
 CMD /bin/bash
